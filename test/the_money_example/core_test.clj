@@ -3,12 +3,19 @@
             [the-money-example.core :refer :all]))
 
 (deftest money-test
-  (testing "5 USD * 2 = 10"
-    (let [five (->Dollar 5)
-          product (times five 2)]
-      (is (= 10 (:amount product)))))
-  (testing "5 USD * 3 = 15"
-    (let [five (->Dollar 5)
-          product (times five 3)]
-      (is (= 15 (:amount product)))))
-  )
+  (testing "掛け算すると、その結果が入った新しいオブジェクトを返す"
+   (testing "5 USD * 2 = 10"
+     (let [five (->Dollar 5)
+           product (times five 2)]
+       (is (= 10 (:amount product)))))
+    (testing "5 USD * 3 = 15"
+      (let [five (->Dollar 5)
+            product (times five 3)]
+        (is (= 15 (:amount product))))))
+  (testing "同じ金額の通貨は別オブジェクトでもイコール"
+    (testing "5 USD = 5 USD"
+      (is (= (->Dollar 5) (->Dollar 5))))
+    (testing "5 USD != 6 USD"
+      (is (not= (->Dollar 5) (->Dollar 6))))
+    )
+)

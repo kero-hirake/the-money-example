@@ -3,3 +3,5 @@
 - [ ] ~~amout を private にする~~ Clojureでは不要
 - [x] 新しいDollerを返す
 - [ ] Money の丸め処理どうする？
+- [ ] ~~eqals~~ 標準で対応できている
+- [ ] hashcode
