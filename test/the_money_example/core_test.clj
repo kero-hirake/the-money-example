@@ -5,4 +5,4 @@
 (deftest money-test
   (testing "multiplicatoin"
     (let [five (->Dollar 5)]
-      (t/is (= 10 (times five 2))))))
+      (is (= 10 (times five 2))))))

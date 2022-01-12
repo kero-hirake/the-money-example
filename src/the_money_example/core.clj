@@ -6,4 +6,5 @@
 
 (defrecord Dollar [amount]
   Calc
-  (times [this n]))
+  (times [this n]
+         10))
