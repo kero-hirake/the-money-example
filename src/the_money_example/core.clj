@@ -6,5 +6,5 @@
 
 (defrecord Dollar [amount]
   Calc
-  (times [this n]
-         10))
+  (times [this mulitplier]
+         (* amount mulitplier)))
