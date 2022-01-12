@@ -2,9 +2,10 @@
   (:gen-class))
 
 (defprotocol Calc
-  (times [this n]))
+  (times [this multiplier]))
 
 (defrecord Dollar [amount]
   Calc
-  (times [this mulitplier]
-         (* amount mulitplier)))
+  (times [this multiplier]
+    (->Dollar (* amount multiplier))))
+
