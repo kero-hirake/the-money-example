@@ -1,7 +1,9 @@
 (ns the-money-example.core
   (:gen-class))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defprotocol Calc
+  (times [this n]))
+
+(defrecord Dollar [amount]
+  Calc
+  (times [this n]))
