@@ -9,3 +9,7 @@
   (times [this multiplier]
     (->Dollar (* amount multiplier))))
 
+(defrecord Franc [amount]
+  Calc
+  (times [this multiplier]
+    (->Franc (* amount multiplier))))
