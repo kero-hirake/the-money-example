@@ -4,14 +4,12 @@
 
 (deftest money-test
   (testing "掛け算すると、その結果が入った新しいオブジェクトを返す"
-   (testing "5 USD * 2 = 10"
-     (let [five (->Dollar 5)
-           product (times five 2)]
-       (is (= 10 (:amount product)))))
-    (testing "5 USD * 3 = 15"
-      (let [five (->Dollar 5)
-            product (times five 3)]
-        (is (= 15 (:amount product))))))
+   (testing "5 USD * 2 = 10 USD"
+     (let [five (->Dollar 5)]
+       (is (= (->Dollar 10) (times five 2)))))
+    (testing "5 USD * 3 = 15 USD"
+      (let [five (->Dollar 5)]
+        (is (= (->Dollar 15) (times five 3))))))
   (testing "同じ金額の通貨は別オブジェクトでもイコール"
     (testing "5 USD = 5 USD"
       (is (= (->Dollar 5) (->Dollar 5))))

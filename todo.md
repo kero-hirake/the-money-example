@@ -1,7 +1,7 @@
 - [ ] 5 USD + 10 CHF = 10 USD (レートが2:1の場合)
 - [x] 5 USD * 2 = 10 USD
-- [ ] ~~amout を private にする~~ Clojureでは不要
+- [x] ~~amout を private にする~~ Clojureでは不要
 - [x] 新しいDollerを返す
 - [ ] Money の丸め処理どうする？
-- [ ] ~~eqals~~ 標準で対応できている
+- [x] ~~eqals~~ 標準で対応できている
 - [ ] hashcode
