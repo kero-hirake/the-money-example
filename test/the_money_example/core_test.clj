@@ -18,7 +18,9 @@
     (testing "5 CHF = 5 CHF"
       (is (= (->Franc 5) (->Franc 5))))
     (testing "5 CHF != 6 CHF"
-      (is (not= (->Franc 5) (->Franc 6)))))
+      (is (not= (->Franc 5) (->Franc 6))))
+    (testing "5 CHF != 5 USD"
+      (is (not= (->Franc 5) (->Dollar 5)))))
   (testing "Francを掛け算すると、その結果が入った新しいFrancを返す"
     (let [five (->Franc 5)]
       (is (= (->Franc 10) (times five 2)))
