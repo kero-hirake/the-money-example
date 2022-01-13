@@ -3,13 +3,13 @@
 - [x] ~~amout を private にする~~ Clojureでは不要
 - [x] 新しいDollerを返す
 - [ ] Money の丸め処理どうする？
-- [x] ~~eqals~~ 標準で対応できている
+- [x] eqals
 - [ ] hashcode
 - [ ] nullとの透過性比較
 - [ ] 他のオブジェクトとの透過性比較
 - [x] _5 CHF * 2 = 10 CHF_
 - [ ] Dollar と Franc の重複
-- [x] ~~equals の一般化~~
+- [ ] equals の一般化
 - [ ] times の一般化
 - [ ] Franc と Dollat を比較する
 - [ ] 

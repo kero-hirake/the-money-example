@@ -12,15 +12,15 @@
         (is (= (->Dollar 15) (times five 3))))))
   (testing "同じ金額の通貨は別オブジェクトでもイコール"
     (testing "5 USD = 5 USD"
-      (is (= (->Dollar 5) (->Dollar 5))))
+      (is (eq (->Dollar 5) (->Dollar 5))))
     (testing "5 USD != 6 USD"
-      (is (not= (->Dollar 5) (->Dollar 6))))
+      (is (not (eq (->Dollar 5) (->Dollar 6)))))
     (testing "5 CHF = 5 CHF"
-      (is (= (->Franc 5) (->Franc 5))))
+      (is (eq (->Franc 5) (->Franc 5))))
     (testing "5 CHF != 6 CHF"
-      (is (not= (->Franc 5) (->Franc 6))))
+      (is (not (eq (->Franc 5) (->Franc 6)))))
     (testing "5 CHF != 5 USD"
-      (is (not= (->Franc 5) (->Dollar 5)))))
+      (is (not (eq (->Franc 5) (->Dollar 5))))))
   (testing "Francを掛け算すると、その結果が入った新しいFrancを返す"
     (let [five (->Franc 5)]
       (is (= (->Franc 10) (times five 2)))
