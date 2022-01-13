@@ -7,8 +7,8 @@
 - [ ] hashcode
 - [ ] nullとの透過性比較
 - [ ] 他のオブジェクトとの透過性比較
-- [*] _5 CHF * 2 = 10 CHF_
+- [x] _5 CHF * 2 = 10 CHF_
 - [ ] Dollar と Franc の重複
-- [ ] ~~equals の一般化~~
+- [x] ~~equals の一般化~~
 - [ ] times の一般化
 - [ ] 
