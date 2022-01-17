@@ -1,21 +1,15 @@
 (ns the-money-example.core
   (:gen-class))
 
-(defprotocol Calc
-  (times [this multiplier]))
+(defprotocol IMoney
+  (times [this multiplier])
+  (eq [this money]))
 
-(defn eq [obj1 obj2]
-  ;{:pre [(instance? Calc obj1)]}
-  (and
-   (= (:amount obj1) (:amount obj2))
-   (= (class obj1) (class obj2))))
-
-(defrecord Dollar [amount]
-  Calc
+(defrecord Money [amount currency]
+  IMoney
   (times [this multiplier]
-    (->Dollar (* amount multiplier))))
-
-(defrecord Franc [amount]
-  Calc
-  (times [this multiplier]
-    (->Franc (* amount multiplier))))
+    (->Money (* amount multiplier) currency))
+  (eq [this money]
+    (and
+     (= amount (:amount money))
+     (= currency (:currency money)))))

@@ -5,23 +5,29 @@
 (deftest money-test
   (testing "Dollarを掛け算すると、その結果が入った新しいDollarを返す"
     (testing "5 USD * 2 = 10 USD"
-      (let [five (->Dollar 5)]
-        (is (= (->Dollar 10) (times five 2)))))
+      (let [five (->Money 5 :USD)]
+        (is (eq (->Money 10 :USD) (times five 2)))))
     (testing "5 USD * 3 = 15 USD"
-      (let [five (->Dollar 5)]
-        (is (= (->Dollar 15) (times five 3))))))
+      (let [five (->Money 5 :USD)]
+        (is (eq (->Money 15 :USD) (times five 3))))))
   (testing "同じ金額の通貨は別オブジェクトでもイコール"
     (testing "5 USD = 5 USD"
-      (is (eq (->Dollar 5) (->Dollar 5))))
+      (is (eq (->Money 5 :USD) (->Money 5 :USD))))
     (testing "5 USD != 6 USD"
-      (is (not (eq (->Dollar 5) (->Dollar 6)))))
+      (is (not (eq (->Money 5 :USD) (->Money 6 :USD)))))
     (testing "5 CHF = 5 CHF"
-      (is (eq (->Franc 5) (->Franc 5))))
+      (is (eq (->Money 5 :CHF) (->Money 5 :CHF))))
     (testing "5 CHF != 6 CHF"
-      (is (not (eq (->Franc 5) (->Franc 6)))))
+      (is (not (eq (->Money 5 :CHF) (->Money 6 :CHF)))))
     (testing "5 CHF != 5 USD"
-      (is (not (eq (->Franc 5) (->Dollar 5))))))
+      (is (not (eq (->Money 5 :CHF) (->Money 5 :CHF))))))
   (testing "Francを掛け算すると、その結果が入った新しいFrancを返す"
-    (let [five (->Franc 5)]
-      (is (= (->Franc 10) (times five 2)))
-      (is (= (->Franc 15) (times five 3))))))
+    (let [five (->Money 5 :CHF)]
+      (is (eq (->Money 10 :CHF) (times five 2)))
+      (is (eq (->Money 15 :CHF) (times five 3)))))
+  (testing "通貨のテスト"
+    (testing "Dollarの通貨は:USD"
+      (is (= (:currency (->Money 1 :USD)) :USD)))
+    (testing "Francの通貨は:CHF"
+      (is (= (:currency (->Money 1 :CHF)) :CHF))))
+  )
