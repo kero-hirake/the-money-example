@@ -10,6 +10,10 @@
     (testing "5 USD * 3 = 15 USD"
       (let [five (->Money 5 :USD)]
         (is (eq (->Money 15 :USD) (times five 3))))))
+  (testing "Moneyに足し算すると、その結果がはいいたMoneyを返す"
+    (testing "5 USD + 5 USD = 10 USD"
+      (let [sum (plus (->Money 5 :USD) (->Money 5 :USD))]
+        (is (= (->Money 10 :USD) sum)))))
   (testing "同じ金額の通貨は別オブジェクトでもイコール"
     (testing "5 USD = 5 USD"
       (is (eq (->Money 5 :USD) (->Money 5 :USD))))
