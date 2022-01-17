@@ -15,16 +15,8 @@
       (is (eq (->Money 5 :USD) (->Money 5 :USD))))
     (testing "5 USD != 6 USD"
       (is (not (eq (->Money 5 :USD) (->Money 6 :USD)))))
-    (testing "5 CHF = 5 CHF"
-      (is (eq (->Money 5 :CHF) (->Money 5 :CHF))))
-    (testing "5 CHF != 6 CHF"
-      (is (not (eq (->Money 5 :CHF) (->Money 6 :CHF)))))
     (testing "5 CHF != 5 USD"
-      (is (not (eq (->Money 5 :CHF) (->Money 5 :CHF))))))
-  (testing "Francを掛け算すると、その結果が入った新しいFrancを返す"
-    (let [five (->Money 5 :CHF)]
-      (is (eq (->Money 10 :CHF) (times five 2)))
-      (is (eq (->Money 15 :CHF) (times five 3)))))
+      (is (not (eq (->Money 5 :CHF) (->Money 5 :USD))))))
   (testing "通貨のテスト"
     (testing "Dollarの通貨は:USD"
       (is (= (:currency (->Money 1 :USD)) :USD)))
