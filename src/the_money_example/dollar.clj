@@ -8,7 +8,5 @@
   Calc
   (times [this mulitplier]
     (->Dollar (* amount mulitplier)))
-  money/IMoney
-  (money/eq [this object]
-    (= amount (:amount object))))
+  )
 
