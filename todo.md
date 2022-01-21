@@ -3,3 +3,8 @@
 - [ ] ~~amout を private にする~~ Clojureでは不要
 - [x] Dollar の副作用どうする？
 - [ ] Money の丸め処理どうする？
+- [x] equals
+- [ ] hashcode
+- [ ] nullとの等価比較
+- [ ] 他のオブジェクトとの等価比較
+- [ ] 

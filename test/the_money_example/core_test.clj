@@ -11,4 +11,9 @@
     (testing "5 USD * 3 = 15 USD"
       (let [five (usd/->Dollar 5)
             product (usd/times five 3)]
-        (is (= 15 (:amount product)))))))
+        (is (= 15 (:amount product))))))
+  (testing "等価性比較"
+    (testing "5 USD = 5 USD"
+      (is (usd/eq (usd/->Dollar 5) (usd/->Dollar 5))))
+    (testing "5 USD != 6 USD"
+      (is (not (usd/eq (usd/->Dollar 5) (usd/->Dollar 6)))))))
