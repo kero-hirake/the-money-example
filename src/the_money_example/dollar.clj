@@ -6,4 +6,4 @@
 (defrecord Dollar [amount]
   Calc
   (times [this mulitplier]
-         (* amount mulitplier)))
+     (->Dollar (* amount mulitplier))))
