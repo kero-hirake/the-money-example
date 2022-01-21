@@ -1,5 +1,5 @@
 - [ ] 5 USD + 10 CHF = 10 USD (レートが2:1の場合)
-- [ ] _5 USD * 2 = 10 USD_
+- [*] 5 USD * 2 = 10 USD
 - [ ] ~~amout を private にする~~ Clojureでは不要
-- [ ] ~~Dollar の副作用どうする？~~ 
+- [ ] Dollar の副作用どうする？
 - [ ] Money の丸め処理どうする？
