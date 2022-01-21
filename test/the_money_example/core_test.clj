@@ -5,13 +5,11 @@
 (deftest money-test
   (testing "timesで掛け算"
     (testing "5 USD * 2 = 10 USD"
-      (let [five (usd/->Dollar 5)
-            product (usd/times five 2)]
-        (is (= 10 (:amount product)))))
+      (let [five (usd/->Dollar 5)]
+        (is (= (usd/->Dollar 10) (usd/times five 2)))))
     (testing "5 USD * 3 = 15 USD"
-      (let [five (usd/->Dollar 5)
-            product (usd/times five 3)]
-        (is (= 15 (:amount product))))))
+      (let [five (usd/->Dollar 5)]
+        (is (= (usd/->Dollar 15) (usd/times five 3))))))
   (testing "等価性比較"
     (testing "5 USD = 5 USD"
       (is (usd/eq (usd/->Dollar 5) (usd/->Dollar 5))))
