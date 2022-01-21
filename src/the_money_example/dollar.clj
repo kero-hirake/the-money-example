@@ -1,12 +1,14 @@
-(ns the-money-example.dollar)
+(ns the-money-example.dollar
+  (:require [the-money-example.money :as money]))
 
 (defprotocol Calc
-  (times [this mulitplier])
-  (eq [this object]))
+  (times [this mulitplier]))
 
 (defrecord Dollar [amount]
   Calc
   (times [this mulitplier]
     (->Dollar (* amount mulitplier)))
-  (eq [this object]
+  money/IMoney
+  (money/eq [this object]
     (= amount (:amount object))))
+

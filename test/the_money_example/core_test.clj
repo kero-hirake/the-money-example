@@ -1,5 +1,6 @@
 (ns the-money-example.core-test
   (:require [clojure.test :refer :all]
+            [the-money-example.money :as money]
             [the-money-example.dollar :as usd]
             [the-money-example.franc :as chf]))
 
@@ -20,6 +21,6 @@
         (is (= (chf/->Franc 15) (chf/times five 3))))))
   (testing "等価性比較"
     (testing "5 USD = 5 USD"
-      (is (usd/eq (usd/->Dollar 5) (usd/->Dollar 5))))
+      (is (money/eq (usd/->Dollar 5) (usd/->Dollar 5))))
     (testing "5 USD != 6 USD"
-      (is (not (usd/eq (usd/->Dollar 5) (usd/->Dollar 6)))))))
+      (is (not (money/eq (usd/->Dollar 5) (usd/->Dollar 6)))))))
