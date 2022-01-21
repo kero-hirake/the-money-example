@@ -27,4 +27,6 @@
     (testing "5 CHF = 5 CHF"
       (is (money/eq (chf/->Franc 5) (chf/->Franc 5))))
     (testing "5 CHF != 6 CHF"
-      (is (not (money/eq (chf/->Franc 5) (chf/->Franc 6)))))))
+      (is (not (money/eq (chf/->Franc 5) (chf/->Franc 6)))))
+    (testing "5 CHF != 5 USD"
+      (is (not (money/eq (chf/->Franc 5) (usd/->Dollar 5)))))))

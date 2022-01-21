@@ -4,4 +4,6 @@
   (eq [this object]))
 
 (defn eq [this object]
-          (= (:amount this) (:amount object)))
+  (and
+   (= (:amount this) (:amount object))
+   (= (class this) (class object))))
