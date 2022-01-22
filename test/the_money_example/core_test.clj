@@ -1,6 +1,7 @@
 (ns the-money-example.core-test
   (:require [clojure.test :refer :all]
-            [the-money-example.money :as money]))
+            [the-money-example.money :as money]
+            [the-money-example.bank :as bank]))
 
 (deftest money-test
   (testing "掛け算"
@@ -24,6 +25,11 @@
       (is (= :CHF (:currency (money/franc 1))))))
   (testing "足し算"
     (testing "5 USD + 5 USD = 10 USD"
+      (let [usd5 (money/dollar 5)
+            sum (money/plus usd5 usd5)
+            bank (bank/->Bank)
+            redu (bank/redu bank sum :USD)]
+        (is (= (money/dollar 10) redu)))
       (let [sum (money/plus (money/dollar 5) (money/dollar 5))]
         (is (= (money/dollar 10) sum))))
     )
