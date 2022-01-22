@@ -1,5 +1,4 @@
-(ns the-money-example.dollar
-  (:require [the-money-example.money :as money]))
+(ns the-money-example.dollar)
 
 (defprotocol Calc
   (times [this mulitplier]))
