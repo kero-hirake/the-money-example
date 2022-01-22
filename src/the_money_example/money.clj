@@ -2,7 +2,8 @@
 
 (defprotocol IMoney
   (eq [this other])
-  (times [this mulitplier]))
+  (times [this mulitplier])
+  (plus [this other]))
 
 (defrecord Money [amount currency]
   IMoney
@@ -11,7 +12,9 @@
      (= (:amount this) (:amount other))
      (= (:currency this) (:currency other))))
   (times [this mulitplier]
-    (->Money (* amount mulitplier) currency)))
+    (->Money (* amount mulitplier) currency))
+  (plus [this addend]
+    (->Money (+ amount (:amount addend)) currency)))
 
 (defn dollar [amount]
   (->Money amount :USD))

@@ -3,7 +3,7 @@
             [the-money-example.money :as money]))
 
 (deftest money-test
-  (testing "Dollar を timesで掛け算"
+  (testing "掛け算"
     (testing "5 USD * 2 = 10 USD"
       (let [five (money/dollar 5)]
         (is (= (money/dollar 10) (money/times five 2)))))
@@ -22,4 +22,9 @@
       (is (= :USD (:currency (money/dollar 1)))))
     (testing "1 CHF の通貨は :CHF"
       (is (= :CHF (:currency (money/franc 1))))))
+  (testing "足し算"
+    (testing "5 USD + 5 USD = 10 USD"
+      (let [sum (money/plus (money/dollar 5) (money/dollar 5))]
+        (is (= (money/dollar 10) sum))))
+    )
   )
