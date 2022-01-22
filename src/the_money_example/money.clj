@@ -2,16 +2,21 @@
   (:require [the-money-example.dollar :as usd]
             [the-money-example.franc :as chf]))
 
-#_(defprotocol IMoney
-  (eq [this object]))
+(defprotocol IMoney
+  (eq [this other])
+  (times [this mulitplier]))
 
-(defn eq [this object]
-  (and
-   (= (:amount this) (:amount object))
-   (= (class this) (class object))))
+(defrecord Money [amount currency]
+  IMoney
+  (eq [this other]
+    (and
+     (= (:amount this) (:amount other))
+     (= (:currency this) (:currency other))))
+  (times [this mulitplier]
+    (->Money (* amount mulitplier) currency)))
 
 (defn dollar [amount]
-  (usd/->Dollar amount :USD))
+  (->Money amount :USD))
 
 (defn franc [amount]
-  (chf/->Franc amount :CHF))
+  (->Money amount :CHF))
