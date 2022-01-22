@@ -1,7 +1,6 @@
 (ns the-money-example.money
   (:require [the-money-example.dollar :as usd]
-            [the-money-example.franc :as chf])
-  )
+            [the-money-example.franc :as chf]))
 
 #_(defprotocol IMoney
   (eq [this object]))
@@ -12,7 +11,7 @@
    (= (class this) (class object))))
 
 (defn dollar [amount]
-  (usd/->Dollar amount))
+  (usd/->Dollar amount :USD))
 
 (defn franc [amount]
-  (chf/->Franc amount))
+  (chf/->Franc amount :CHF))

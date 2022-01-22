@@ -9,4 +9,6 @@
 - [ ] 他のオブジェクトとの等価比較
 - [x] 5 CHF * 2 = 10 CHF
 - [x] Franc と Dollar の比較
+- [x] equals の一般化
+- [ ] times の一般化
 - [ ] 通貨の概念

@@ -29,4 +29,10 @@
     (testing "5 CHF != 6 CHF"
       (is (not (money/eq (money/franc 5) (money/franc 6)))))
     (testing "5 CHF != 5 USD"
-      (is (not (money/eq (money/franc 5) (money/dollar 5)))))))
+      (is (not (money/eq (money/franc 5) (money/dollar 5))))))
+  (testing "通貨"
+    (testing "1 USD の通貨は :USD"
+      (is (= :USD (:currency (money/dollar 1)))))
+    (testing "1 CHF の通貨は :CHF"
+      (is (= :CHF (:currency (money/franc 1))))))
+  )

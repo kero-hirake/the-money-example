@@ -3,9 +3,8 @@
 (defprotocol Calc
   (times [this mulitplier]))
 
-(defrecord Dollar [amount]
+(defrecord Dollar [amount currency]
   Calc
   (times [this mulitplier]
-    (->Dollar (* amount mulitplier)))
-  )
+    (->Dollar (* amount mulitplier) currency)))
 
