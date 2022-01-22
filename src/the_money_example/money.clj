@@ -1,6 +1,4 @@
-(ns the-money-example.money
-  (:require [the-money-example.dollar :as usd]
-            [the-money-example.franc :as chf]))
+(ns the-money-example.money)
 
 (defprotocol IMoney
   (eq [this other])
