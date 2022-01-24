@@ -7,5 +7,8 @@
 (defrecord Bank []
   IBank
   (redu [this source to]
-        (money/dollar 10)))
+        #_(expr/redu source to)
+        (let [sum source
+              amount (+ (-> sum  :augend :amount) (-> sum  :addend :amount))]
+          (money/->Money amount to))))
 

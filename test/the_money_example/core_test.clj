@@ -1,7 +1,8 @@
 (ns the-money-example.core-test
   (:require [clojure.test :refer :all]
             [the-money-example.money :as money]
-            [the-money-example.bank :as bank]))
+            [the-money-example.bank :as bank]
+            [the-money-example.sum :as sum]))
 
 (deftest money-test
   (testing "掛け算 (multiplication)"
@@ -36,5 +37,11 @@
             sum exp]  ; Expression to Sum
         (is (= usd5 (:augend sum)))
         (is (= usd5 (:addend sum)))))
-    )
+    (testing "(reduce sum)"
+      (let [sum (sum/->Sum (money/dollar 3) (money/dollar 4))
+            bank (bank/->Bank)
+            result (bank/redu bank sum :USD)]
+        (is (= (money/dollar 7) result))))
+    ) 
+  )
 
