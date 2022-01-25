@@ -1,7 +1,14 @@
 (ns the-money-example.bank
   (:require [the-money-example.money :as money]))
 
-(defn redu [source to]
-  (money/->Money 10 :USD) 
-  )
+(defprotocol IBank
+  (redu [this source to]))
+
+(defrecord Bank []
+  IBank
+  (redu [this source to]
+        #_(expr/redu source to)
+        (let [sum source
+              amount (+ (-> sum  :augend :amount) (-> sum  :addend :amount))]
+          (money/->Money amount to))))
 

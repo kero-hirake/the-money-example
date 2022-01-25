@@ -1,3 +1,16 @@
 - [ ] 5 USD + 10 CHF = 10 USD (レートが2:1の場合)
 - [ ] 5 USD + 5 USD = 10 USD
-- [ ] 
+- [ ] Money の丸め処理どうする？
+- [ ] hashcode
+- [ ] nullとの等価比較
+- [ ] 他のオブジェクトとの等価比較
+- [x] equals
+- [x] 5 USD * 2 = 10 USD
+- [x] ~~amout を private にする~~ Clojureでは不要
+- [x] Dollar の副作用どうする？
+- [x] 5 CHF * 2 = 10 CHF
+- [x] Franc と Dollar の重複
+- [x] equals の一般化
+- [x] times の一般化
+- [x] Franc と Dollar を比較
+- [x] 通貨の概念

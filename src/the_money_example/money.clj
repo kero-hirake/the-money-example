@@ -1,21 +1,29 @@
-(ns the-money-example.money)
+(ns the-money-example.money
+  (:require [the-money-example.sum :as sum]
+            [the-money-example.expression :as expression]))
 
 (defprotocol IMoney
-  (times [this multiplier])
-  (plus [this money])
-  (eq [this money]))
+  (eq [this other])
+  (times [this mulitplier])
+  (plus [this other]))
 
 (defrecord Money [amount currency]
   IMoney
-  (times [this multiplier]
-    (->Money (* amount multiplier) currency))
-  (plus [this money]
-    (->Money (+ amount (:amount money)) currency))
-  (eq [this money]
+  (eq [this other]
     (and
-     (= amount (:amount money))
-     (= currency (:currency money)))))
+     (= (:amount this) (:amount other))
+     (= (:currency this) (:currency other))))
+  
+  (times [this mulitplier]
+    (->Money (* amount mulitplier) currency))
+  
+  (plus [this addend]
+    (sum/->Sum this addend))
+  
+  expression/IExpression)
 
-(->Money 5 :USD)
-(let [usd5 (->Money 5 :USD)]
-  (plus usd5 usd5))
+(defn dollar [amount]
+  (->Money amount :USD))
+
+(defn franc [amount]
+  (->Money amount :CHF))
