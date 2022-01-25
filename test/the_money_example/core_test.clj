@@ -42,6 +42,10 @@
             bank (bank/->Bank)
             result (bank/redu bank sum :USD)]
         (is (= (money/dollar 7) result))))
-    ) 
-  )
+    (testing "(reduce moneny)"
+      (let [bank (bank/->Bank)
+            result (bank/redu bank (money/dollar 1) :USD)]
+        (is (= (money/dollar 1) result))))))
 
+
+;(is (= (money/dollar 1) (bank/redu (bank/->Bank) (money/dollar 1) :USD)))
