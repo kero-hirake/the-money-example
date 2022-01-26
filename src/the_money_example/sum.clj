@@ -1,5 +1,4 @@
-(ns the-money-example.sum
-  (:require [the-money-example.expression :as expression]))
+(ns the-money-example.sum)
 
-(defrecord Sum [augend addend]
-  expression/IExpression)
+(defrecord Sum [augend addend])
+

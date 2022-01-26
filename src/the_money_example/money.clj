@@ -1,6 +1,5 @@
 (ns the-money-example.money
-  (:require [the-money-example.sum :as sum]
-            [the-money-example.expression :as expression]))
+  (:require [the-money-example.sum :as sum]))
 
 (defprotocol IMoney
   (eq [this other])
@@ -13,14 +12,12 @@
     (and
      (= (:amount this) (:amount other))
      (= (:currency this) (:currency other))))
-  
+
   (times [this mulitplier]
     (->Money (* amount mulitplier) currency))
-  
+
   (plus [this addend]
-    (sum/->Sum this addend))
-  
-  expression/IExpression)
+    (sum/->Sum this addend)))
 
 (defn dollar [amount]
   (->Money amount :USD))

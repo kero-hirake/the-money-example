@@ -1,3 +1,6 @@
-(ns the-money-example.expression)
+(ns the-money-example.expression
+  (:require [the-money-example.money :as money]))
 
-(defprotocol IExpression)
+(defn redu [source to]
+      (let [amount (+ (-> source  :augend :amount) (-> source  :addend :amount))]
+        (money/->Money amount to)))
